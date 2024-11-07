@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnjoyToLearn - Aprendendo a gostar de aprender</title>
+    <!-- Link para o CSS externo -->
+    <link rel="stylesheet" href="assets/css/visit.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">Enjoy<span class="orange-text">ToLearn🎓</span></div>
+        <div class="auth-buttons">
+            <button class="btn btn-login" onclick="openModal('loginModal')">Login</button>
+            <button class="btn btn-signup" onclick="openModal('signupModal')">Criar Conta</button>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <h1>Aprenda de forma <span class="orange-text">divertida</span> e eficiente</h1>
+        <p>Descubra uma nova maneira de aprender com nossa plataforma interativa</p>
+        <button class="btn btn-signup" onclick="openModal('signupModal')">Comece Agora</button>
+    </section>
+
+    <section class="features">
+        <h2>Recursos Premium</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fas fa-video"></i>
+                <h3>Aulas em Vídeo</h3>
+                <p>Acesso a milhares de videoaulas com os melhores professores</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-book-reader"></i>
+                <h3>Material Didático</h3>
+                <p>Material completo e atualizado para todos os níveis</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-users"></i>
+                <h3>Comunidade Ativa</h3>
+                <p>Interaja com outros alunos e tire suas dúvidas</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modais de Login e Cadastro -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="loginEmail">Email:</label>
+                    <input type="email" id="loginEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">Senha:</label>
+                    <input type="password" id="loginPassword" required>
+                </div>
+                <button class="btn btn-signup" style="width: 100%">Entrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="signupModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('signupModal')">&times;</span>
+            <h2>Criar Conta</h2>
+            <form id="signupForm" onsubmit="handleSignup(event)">
+                <div class="form-group">
+                    <label for="signupEmail">Email:</label>
+                    <input type="email" id="signupEmail" required>
+                </div>
+                <div class="form-group">
+                    <label for="signupPassword">Senha:</label>
+                    <input type="password" id="signupPassword" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">Confirmar Senha:</label>
+                    <input type="password" id="confirmPassword" required>
+                </div>
+                <button class="btn btn-signup" style="width: 100%">Cadastrar</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = 'none';
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+        
+            // Aqui você adicionaria a lógica de autenticação
+            // Por enquanto, vamos apenas redirecionar para a página do usuário
+            window.location.href = 'user.html';
+        }
+
+        function handleSignup(event) {
+            event.preventDefault();
+            const email = document.getElementById('signupEmail').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+    
+            if (password !== confirmPassword) {
+                alert('As senhas não coincidem!');
+                return;
+            }
+    
+            // Aqui você adicionaria a lógica de criação de conta
+            // Por enquanto, vamos apenas redirecionar para a página do usuário
+            window.location.href = 'user.html';
+        }
+    
+        // Fechar modal quando clicar dentro dele
+        window.onclick = function(event) {
+            if (event.target.className === 'modal') {
+                event.target.style.display = 'none';
+            }
+        }
+        </script>
+    </body>
+</html>

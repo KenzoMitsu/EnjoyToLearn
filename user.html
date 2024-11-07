@@ -1,0 +1,70 @@
+<html>
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EnjoyToLearn - Assinatura</title>
+    <!-- link para CSS externo -->
+    <link rel="stylesheet" href="assets/css/user.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    </head>
+    <body>
+        <nav class="navbar">
+            <div class="logo">Enjoy<span class="orange-text">ToLearn🎓</span></div>
+            <div class="user-info">
+                <span>Olá "fulano"!</span>
+                <div class="user-avatar">JS</div>
+            </div>
+        </nav>
+    
+        <main>
+            <h1>Escolha seu plano</h1>
+            <div class="subscription-cards">
+                <div class="plan-card">
+                    <h2 class="plan-name">Básico</h2>
+                    <div class="plan-price">R$ 26,99<span style="font-size: 1rem">/mês</span></div>
+                    <ul class="plan-features">
+                        <li>Acesso a cursos básicos</li>
+                        <li>Suporte por email</li>
+                        <li>Certificado de conclusão</li>
+                        <li>Acesso à comunidade</li>
+                    </ul>
+                    <button class="subscribe-btn">Assinar Plano</button>
+                </div>
+    
+                <div class="plan-card current-plan">
+                    <h2 class="plan-name">Premium</h2>
+                    <div class="plan-price">R$ 28,99<span style="font-size: 1rem">/mês</span></div>
+                    <ul class="plan-features">
+                        <li>Todos os benefícios do plano Básico</li>
+                        <li>Acesso a cursos avançados</li>
+                        <li>Suporte prioritário</li>
+                        <li>Mentorias mensais</li>
+                        <li>Conteúdo exclusivo</li>
+                    </ul>
+                    <button class="subscribe-btn" disabled style="background-color: #ccc">Plano Atual</button>
+                </div>
+            </div>
+        </main>
+    
+    <script>
+    document.querySelectorAll('.subscribe-btn:not([disabled])').forEach(button => {
+        button.addEventListener('click', function() {
+            const planName = this.closest('.plan-card').querySelector('.plan-name').textContent;
+            if (confirm(`Você confirma a assinatura do plano ${planName}?`)) {
+                alert('Obrigado por assinar! Você será redirecionado para a página de pagamento.');
+                // Aqui você adicionaria a lógica de redirecionamento para o checkout
+            }
+        });
+    });
+    
+    // Simular dados do usuário logado
+    const userEmail = "joao.silva@email.com";
+    document.addEventListener('DOMContentLoaded', function() {
+        // Aqui você poderia carregar mais informações do usuário via API
+        console.log(`Usuário logado: ${userEmail}`);
+    });
+    </script>
+    
+    </body>
+</html>
